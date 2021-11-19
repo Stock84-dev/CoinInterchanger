@@ -1,0 +1,29 @@
+{
+  "name": "web-app-nodejs",
+  "version": "0.0.0",
+  "description": "WebAppNodejs",
+  "main": "server.js",
+  "author": "",
+  "dependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "d3-dsv": "^1.0.10",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-stockcharts": "^0.7.8",
+    "webpack": "^4.29.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "webpack-cli": "^3.2.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
+}

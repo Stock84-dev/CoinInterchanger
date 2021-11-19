@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CoinInterchanger.Styles"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <FontFamily x:Key="FontMain">Segoe UI</FontFamily>
+    <FontFamily x:Key="FontAwesome">pack://application;,,,/Resources/Fonts/#Font Awesome 5 Free Regular</FontFamily>
+    <FontFamily x:Key="FontMDL2">pack://application;,,,/Resources/Fonts/#mdl2</FontFamily>
+
+    <system:Double x:Key="FontSizeLarge">20</system:Double>
+    
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
+        <Setter Property="FontFamily" Value="{StaticResource FontMain}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+    </Style>
+
+    <!--u+e2b3, u+e2b4, e115,, e8a7-->
+
+</ResourceDictionary>

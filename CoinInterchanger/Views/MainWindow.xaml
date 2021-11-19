@@ -1,0 +1,152 @@
+﻿<Window x:Class="CoinInterchanger.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoinInterchanger.Views"
+        xmlns:c="clr-namespace:CoinInterchanger.Converters"
+        xmlns:w="clr-namespace:CoinInterchanger.Views"
+        mc:Ignorable="d"
+        Title="MainView" Height="450" Width="800"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Resources/Images/AlarmIcon.ico"
+        MinWidth="{Binding WindowMinimumWidth}"
+        MinHeight="{Binding WindowMinimumHeight}">
+        <!--AllowsTransparency="True"-->
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="{Binding ResizeBorderThickness}"
+            CaptionHeight="{Binding TitleHeight}"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+            
+            />
+    </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- Main window outline -->
+                        <Grid>
+
+                            <!-- Outer dragging border -->
+                            <Border BorderThickness="{Binding BeingMoved, Converter={c:BooleanToBorderThicknessConverter}}"
+                                        Panel.ZIndex="2"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
+                                        BorderBrush="{StaticResource WordOrangeBrush}" />
+
+                             <!--Opacity mask for corners on grid--> 
+                            <Border x:Name="Container"
+                                        Background="{StaticResource BackgroundLightBrush}"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}" />
+
+                             <!--Window border and drop shadow--> 
+                            <Border BorderBrush="{StaticResource WordDarkBlueBrush}" BorderThickness="5" Background="{StaticResource ForegroundLightBrush}">
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="0.5" Opacity="0.2" />
+                                </Border.Effect>
+                            </Border>
+
+                            <!--<Border BorderBrush="Aqua" BorderThickness="5" Background="White"/>-->
+
+                            <!-- The main window content -->
+                            <Grid Margin="5">
+
+                                <!-- Corner clipping -->
+                                <!--<Grid.OpacityMask>
+                                    <VisualBrush Visual="{Binding ElementName=Container}" />
+                                </Grid.OpacityMask>-->
+
+                                <Grid.RowDefinitions>
+
+                                    <!-- Title Bar -->
+                                    <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}" />
+                                    <!-- Window Content -->
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Page Content -->
+                                <Border Grid.Row="2" Padding="{Binding InnerContentPadding}" ClipToBounds="True">
+                                    <ContentPresenter Content="{TemplateBinding Content}" />
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <local:WindowHeader Grid.Row="0">
+            <local:WindowHeader.Content>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Padding="2">
+                        <Image Grid.Column="0" Source="/Resources/Images/AlarmIcon.ico"></Image>
+                    </Border>
+                    <Menu Grid.Column="1" Foreground="{StaticResource ForegroundVeryDarkBrush}" Background="Transparent" VerticalAlignment="Center">
+                        <MenuItem Header="_View">
+                            <MenuItem Header="_Exchange" />
+                            <MenuItem Header="_Markets" />
+                            <MenuItem Header="_Chart" />
+                            <MenuItem Header="_Trade" />
+                            <MenuItem Header="_Trades" />
+                            <MenuItem Header="_Order Book" />
+                        </MenuItem>
+                        <MenuItem Header="_Tools">
+                            <MenuItem Header="_Options"/>
+                        </MenuItem>
+                    </Menu>
+                    <TextBlock Grid.Column="2" Text="Hello world!" VerticalAlignment="Center" Style="{StaticResource BaseTextBlockStyle}"/>
+                </Grid>
+            </local:WindowHeader.Content>
+        </local:WindowHeader>
+        <Canvas Grid.Row="1">
+            <Border BorderThickness="3" Padding="10" >
+                <local:WindowHeader Width="400" Height="25">
+                    <local:WindowHeader.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="25"/>
+                                <ColumnDefinition Width="25"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="1" Text="Hello world!" VerticalAlignment="Center" Style="{StaticResource BaseTextBlockStyle}"/>
+                            <Button Grid.Column="2" Style="{StaticResource ControlButton}" FontFamily="{StaticResource FontAwesome}" Content="&#xf013;" ToolTip="Settings for this window"/>
+                            <ToggleButton Grid.Column="3" FontFamily="{StaticResource FontAwesome}" FontSize="18">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ChangingButton}">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Content" Value="&#xf247;"/>
+                                                <Setter Property="ToolTip" Value="Put window inside main window"/>
+                                            </Trigger>
+                                            <Trigger Property="IsChecked" Value="False">
+                                                <Setter Property="Content" Value="&#xf248;"/>
+                                                <Setter Property="ToolTip" Value="Separate windows"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                        </Grid>
+                    </local:WindowHeader.Content>
+                </local:WindowHeader>
+            </Border>
+        </Canvas>
+    </Grid>
+</Window>

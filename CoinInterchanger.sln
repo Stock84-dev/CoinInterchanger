@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinInterchanger", "CoinInterchanger\CoinInterchanger.csproj", "{95094CB6-5FAE-4703-B527-2CC33047F7D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinInterchangerLib", "CoinInterchangerLib\CoinInterchangerLib.csproj", "{702928F7-2433-441C-93A8-880CBE5B0C0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoinInterchanger.Core", "CoinInterchanger.Core\CoinInterchanger.Core.csproj", "{CAD21F24-8ED4-4B0E-AC7D-DE4E780D2002}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Licences", "Licences", "{4BA31E05-1CF0-49B2-A4EC-F2A843837CEA}"
+	ProjectSection(SolutionItems) = preProject
+		Licences.txt = Licences.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95094CB6-5FAE-4703-B527-2CC33047F7D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95094CB6-5FAE-4703-B527-2CC33047F7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95094CB6-5FAE-4703-B527-2CC33047F7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95094CB6-5FAE-4703-B527-2CC33047F7D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{702928F7-2433-441C-93A8-880CBE5B0C0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702928F7-2433-441C-93A8-880CBE5B0C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702928F7-2433-441C-93A8-880CBE5B0C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702928F7-2433-441C-93A8-880CBE5B0C0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD21F24-8ED4-4B0E-AC7D-DE4E780D2002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD21F24-8ED4-4B0E-AC7D-DE4E780D2002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD21F24-8ED4-4B0E-AC7D-DE4E780D2002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD21F24-8ED4-4B0E-AC7D-DE4E780D2002}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8503CFFD-C72B-464C-A6E7-775F6D80E97E}
+	EndGlobalSection
+EndGlobal
